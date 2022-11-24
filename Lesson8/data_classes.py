@@ -73,5 +73,5 @@ class Car(Auto):
         car = super().__str__()
 
         return car + f"""
-        || Max speed: {self.__max_speed} \tkg
+        || Max speed: {self.__max_speed} \tkmh
         """
