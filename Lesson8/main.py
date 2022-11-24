@@ -11,6 +11,8 @@ car2 = Car('KIA', 6, 'Pink', 'RIO', 1700, 'Oleg', 240)
 
 
 def check_move_stop():
+    print('''Движение  и остановка
+___________________________''')
     automobile1.move()
     automobile2.move()
     truck1.move()
@@ -26,6 +28,8 @@ def check_move_stop():
 
 
 def check_load():
+    print('''Погрузка
+___________________________''')
     truck1.load()
     truck2.load()
 
@@ -36,6 +40,8 @@ def print_obj(*args):
 
 
 def make_old(years: int):
+    print('''Старение
+___________________________''')
     for i in range(years):
         automobile1.birthday()
         automobile2.birthday()
@@ -47,6 +53,6 @@ def make_old(years: int):
 
 if __name__ == "__main__":
     check_move_stop()
-    check_load()
+    # check_load()
     print_obj(automobile1, automobile2, car2, car1, truck2, truck1)
-    make_old(3)
+    make_old(1)

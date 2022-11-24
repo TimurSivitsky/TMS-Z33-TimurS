@@ -20,20 +20,20 @@ class Auto():
 
     def birthday(self):
         self.__age += 1
-        print(f'{self.__class__}, {self.__brand} {self.__mark} Постарел на год. Теперь мне {self.__age} ')
+        print(f'{self.__class__.__name__}: {self.__brand} {self.__mark} Постарел на год. Теперь возраст {self.__age} лет ')
 
     def stop(self):
-        print(f'{self.__class__} {self.__brand} {self.__mark} остановилась ')
+        print(f'{self.__class__.__name__}: {self.__brand} {self.__mark} остановилась ')
 
     def __str__(self):
         return f"""
-        Brand: {self.__brand},
-        Model: {self.__mark},
-        Age: {self.__age} \t\ty.o.,
-        Weight: {self.__weight} \tkg,
-        Color: {self.__color},
-        Owner: {self.owner}
-        """
+        ______________________________________
+        || Brand: {self.__brand},
+        || Model: {self.__mark},
+        || Age: {self.__age} \t\ty.o.,
+        || Weight: {self.__weight} \tkg,
+        || Color: {self.__color},
+        || Owner: {self.owner}"""
 
 
 class Truck(Auto):
@@ -46,7 +46,9 @@ class Truck(Auto):
     def __str__(self):
         truck_str = super().__str__()
 
-        return truck_str + f"""Max load: {self.__max_load} \tkg"""
+        return truck_str + f"""
+        || Max load: {self.__max_load} \tkg
+        """
 
     def move(self):
         print(f'Attention')
@@ -70,4 +72,6 @@ class Car(Auto):
     def __str__(self):
         car = super().__str__()
 
-        return car + f"""Max speed: {self.__max_speed} \tkg"""
+        return car + f"""
+        || Max speed: {self.__max_speed} \tkg
+        """
