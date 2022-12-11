@@ -1,5 +1,6 @@
 from auth import login
 from registration import registration
+from tickets import exchange_ticket
 from settings import intro
 
 
@@ -65,7 +66,27 @@ def main_menu(user_and_token):
                 return 'exit'
             if reg is not False:
                 return False
+        case '4':
+
+            res = exchange_ticket(user_and_token)
+            if res == 'exit':
+                print("Exchange tickets has been canceled by you")
+                return 'exit'
+
+            elif isinstance(user_and_token, tuple):
+                return user_and_token, 'login'
+
         case '3':
+
+            user_and_token = login()
+            if user_and_token == 'exit':
+                print("Login has been exited by you")
+                return 'exit'
+
+            elif isinstance(user_and_token, tuple):
+                return user_and_token, 'login'
+
+        case '5':
 
             user_and_token = login()
             if user_and_token == 'exit':

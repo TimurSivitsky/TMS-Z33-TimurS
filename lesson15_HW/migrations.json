@@ -5,6 +5,8 @@
   "models": [
     "models.Users",
     "models.User_session",
-    "models.Tickets"
+    "models.Tickets",
+    "models.Products",
+    "models.Orders"
   ]
 }

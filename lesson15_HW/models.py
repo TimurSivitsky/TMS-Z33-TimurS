@@ -73,3 +73,17 @@ class Tickets(DB_CONNECTION.Model):
             return False
         else:
             return True
+
+class Products(DB_CONNECTION.Model):
+    product_uuid = UUIDField(primary_key=True, index=True)
+    name = CharField(max_length=255, null=False)
+    cost = FloatField(default=None, null=False)
+    count = IntegerField(default=0, null=False)
+
+
+class Orders(DB_CONNECTION.Model):
+    order_uuid = UUIDField(primary_key=True, index=True)
+    user_id = ForeignKeyField(Users, field='user_uuid')
+    product_id = ForeignKeyField(Products, field='product_uuid')
+    count = IntegerField(default=0)
+    order_dt = DateTimeField(default=str(datetime.datetime.now()))

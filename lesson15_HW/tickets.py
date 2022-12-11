@@ -26,7 +26,7 @@ def update_exchange_status_ticket(ticket_number: Tickets, user: Users):
         return 'ticket was unavailable'
 
 
-def exchange_ticket(user=None):
+def exchange_ticket(user):
     ticket_number: str = ''
     while bool(ticket_number) == False:
         ticket_number = input("Тикет ").replace(' ', '')
@@ -36,10 +36,12 @@ def exchange_ticket(user=None):
     return update_exchange_status_ticket(ticket_number=ticket_number, user=Users.get(Users.username == 'tima1'))
 
 
+
+
 if __name__ == "__main__":
     # user = Users.get(Users.user_uuid == 'bb51bb2b-1e14-4915-8114-58085b952c8f')
     # user = Users.get(Users.username == 'tima1')
     # print(user.email)
     # print(update_exchange_status_ticket(ticket_number='ebb94499-05c9-494f-9f4a-402c6543f244',
     #                                     user=Users.get(Users.username == 'tima1')))
-    print(exchange_ticket())
+    print(exchange_ticket(user=Users.get(Users.username == 'tima1')))
