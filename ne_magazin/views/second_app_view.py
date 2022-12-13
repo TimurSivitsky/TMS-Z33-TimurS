@@ -1,13 +1,12 @@
 import time
 
-from ne_magazin.views.handlers.decoder_token import parse_username_and_points, get_data_from_user_dict
+from ne_magazin.views.handlers.decoder_token import parse_username_and_points
 from ne_magazin.settings import menu_items_map
 from ne_magazin.settings import intro
-from tickets import exchange_ticket
-from products import products_list_view
-from orders import laucnh_order_view
-from profile import profile_view
-from ne_magazin.models import Orders
+from ne_magazin.views.tickets import exchange_ticket
+from ne_magazin.views.products import products_list_view
+from ne_magazin.views.orders import laucnh_order_view
+from ne_magazin.views.profile import profile_view
 
 
 @intro
@@ -18,10 +17,10 @@ def render_second_view_menu(username, user_uuid):
         print(
 f"""Для взаимодействия выберете номер команды:
 
-> {menu_items_map['after_login_view'][0]}
-> {menu_items_map['after_login_view'][1]}
-> {menu_items_map['after_login_view'][2]}
-> {menu_items_map['after_login_view'][3]}""")
+> 1 - {menu_items_map['after_login_view'][0]}
+> 2 - {menu_items_map['after_login_view'][1]}
+> 3 - {menu_items_map['after_login_view'][2]}
+> 4 - {menu_items_map['after_login_view'][3]}""")
 # No implement:
 # > {menu_items_map['after_login_view'][4]}
 
@@ -33,7 +32,7 @@ f"""Для взаимодействия выберете номер команд
                 exit_reslut = products_list_view()
 
             case '2':
-                result_order: Orders = laucnh_order_view(username)
+                result_order = laucnh_order_view(username)
                 if result_order == False:
                     return False
                 elif bool(result_order) == True:

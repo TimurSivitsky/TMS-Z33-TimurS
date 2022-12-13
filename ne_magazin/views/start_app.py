@@ -6,19 +6,20 @@ from ne_magazin.views.products import products_list_view
 
 import time
 
+
 @intro
 def render_start_menu():
     while True:
         # print(welcome_msg)
         print(
-f"""
+            f"""
 Для взаимодействия выберете номер команды:
 
-> {menu_items_map['login_view'][0]}
-> {menu_items_map['login_view'][1]}
-> {menu_items_map['login_view'][2]}
-> {menu_items_map['login_view'][3]}
-        """ )
+> 1 - {menu_items_map['login_view'][0]}
+> 2 - {menu_items_map['login_view'][1]}
+> 3 - {menu_items_map['login_view'][2]}
+> 4 - {menu_items_map['login_view'][3]}
+        """)
         input_choice = input("> ").replace(' ', '')
 
         match input_choice:
@@ -38,9 +39,7 @@ f"""
                 print(f'неправильный выбор: \'{input_choice}\'  Попробуйте еще раз')
 
 
-
-
-def launcher():
+def executer():
     exit_obj = render_start_menu()
     match exit_obj:
         case "Регистрация":
@@ -70,15 +69,17 @@ def launcher():
             return exit_reslut
             # exit_obj = product_module(exit_obj)
 
-if __name__ == "__main__":
-    a = launcher()
-    while a  == False:
-        a = launcher()
+
+
+def launch():
+    a = executer()
+    while a == False:
+        a = executer()
 
     if isinstance(a, tuple):
         if a[0] == 'authorized':
             launch_second_view(a[1])
 
 
-
-    # print(exit_item)
+if __name__ == "__main__":
+    launch()
