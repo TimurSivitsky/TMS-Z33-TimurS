@@ -21,11 +21,11 @@ def list_of_products():
 def render_list(products: list[Products]):
     print(
         f"""
- UUID \t\t\t\t\t\t\t\t            Стоимость \t\t\t Кол-во \t\t Название
+ UUID \t\t\t\t\t\t\t            Стоимость \t\t\t Кол-во \t\t Название
 ==========================================================================================================""")
     for item in products:
         print(
-            f""" {item.product_uuid}\t\t\t{item.cost} \t\t\t\t {item.count} \t\t\t{item.name} """)
+            f""" {str(item.product_uuid):<40}\t\t{item.cost:<16} {item.count:<4} \t\t\t {item.name} """)
     print()
 
 
