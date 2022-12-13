@@ -47,6 +47,7 @@ Company Name:           {self.company_name}
 Registration Date:      {self.dt_created}
 Last Login Date:        {self.dt_last_login}
 User ID (UUID):         {self.user_uuid}
+__________________________________________________________________________
 """
 
 
@@ -90,10 +91,12 @@ class Tickets(DB.Model):
         else: return False
 
     def __str__(self):
-        return f"""Ticket INFO
+        return f"""
+Ticket INFO
 Ticket ID (UUID):           {self.ticket_uuid}
 Available:                  {self.is_available}
 Date when was used:         {self.status_change_dt}
+__________________________________________________________________________
 """
 
 class Products(DB.Model):
@@ -125,9 +128,11 @@ class Orders(DB.Model):
     def __str__(self):
         product_id: Users = self.product_id
 
-        return f"""Order INFO
+        return f"""
+Order INFO
 Order ID (UUID):            {self.order_uuid}
 Product:                    {product_id.name}
 Count:                      {self.count}
 Order Date:                 {self.order_dt}
+__________________________________________________________________________
 """

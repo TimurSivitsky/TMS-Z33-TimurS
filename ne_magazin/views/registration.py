@@ -1,6 +1,4 @@
 from pprint import pprint
-
-from lesson15_HW.settings import intro
 from ne_magazin.models import *
 import uuid
 import datetime

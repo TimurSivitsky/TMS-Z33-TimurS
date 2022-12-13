@@ -1,4 +1,4 @@
-from lesson15_HW.settings import intro
+import getpass
 from ne_magazin.models import *
 import uuid
 import datetime
@@ -26,6 +26,8 @@ def authorization():
         print('Введите username и password')
         username = input("username: ").replace(" ", '')
         if bool(username) == False: return False
+        # password = getpass.getpass('password: ')
+        # password = getpass.getpass(prompt="Enter secret password:")
         password = input("password: ").replace(" ", '')
 
 

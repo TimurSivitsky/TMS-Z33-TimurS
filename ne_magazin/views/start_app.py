@@ -72,13 +72,17 @@ def executer():
 
 
 def launch():
-    a = executer()
-    while a == False:
+    while True:
         a = executer()
+        while a == False:
+            a = executer()
 
-    if isinstance(a, tuple):
-        if a[0] == 'authorized':
-            launch_second_view(a[1])
+        while bool(a) == True:
+            if isinstance(a, tuple):
+                if a[0] == 'authorized':
+                    res = launch_second_view(a[1])
+                    if res == "Logout":
+                        break
 
 
 if __name__ == "__main__":

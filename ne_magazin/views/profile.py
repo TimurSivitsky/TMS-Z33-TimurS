@@ -11,12 +11,17 @@ def profile_view(username):
         print(e)
 
     print(user)
-    print("Used Tickets")
-    for tickets in user_tickets:
-        print(tickets)
-    print("Orders")
-    for orders in user_orders:
-        print(orders)
+    print("\nUsed Tickets: ", end=' ')
+    if user_tickets:
+        for tickets in user_tickets:
+            print(tickets)
+    else: print(None)
+
+    print("\nOrders: ", end=' ')
+    if user_orders:
+        for orders in user_orders:
+            print(orders)
+    else: print(None)
 
     while True:
         choice = input("Send any char to return back: ").replace(" ", '')

@@ -1,5 +1,3 @@
-import time
-
 from ne_magazin.views.handlers.decoder_token import parse_username_and_points
 from ne_magazin.settings import menu_items_map
 from ne_magazin.settings import intro
@@ -10,7 +8,7 @@ from ne_magazin.views.profile import profile_view
 
 
 @intro
-def render_second_view_menu(username, user_uuid):
+def executer_and_render_second_menu(username, user_uuid):
 
     while True:
         # print(welcome_msg)
@@ -20,9 +18,8 @@ f"""Для взаимодействия выберете номер команд
 > 1 - {menu_items_map['after_login_view'][0]}
 > 2 - {menu_items_map['after_login_view'][1]}
 > 3 - {menu_items_map['after_login_view'][2]}
-> 4 - {menu_items_map['after_login_view'][3]}""")
-# No implement:
-# > {menu_items_map['after_login_view'][4]}
+> 4 - {menu_items_map['after_login_view'][3]}
+> 5 - {menu_items_map['after_login_view'][4]}""")
 
         input_choice = input("> ").replace(' ', '')
 
@@ -56,7 +53,7 @@ f"""Для взаимодействия выберете номер команд
             case '5':
 
                 #TODO LOGOUT
-                return "Выйти"
+                return "Logout"
 
 
             case _:
@@ -84,52 +81,18 @@ def is_token(token=None):
         raise Exception('Have no token')
 
 
-# def second_view_launch():
-#     exit_obj = render_second_view_menu()
-#     match exit_obj:
-#         case "Товары":
-#             print('товары')
-#             # registration()
-#
-#             exit_obj = products_render()
-#             if exit_obj == False:
-#                 return False
-#             if bool(exit_obj) == True:
-#                 return False
-#         case "Купить":
-#             try:
-#                 print('auth')
-#                 exit_obj = purchase_order()
-#                 if exit_obj == False:
-#                     return False
-#                 if bool(exit_obj) == True:
-#                     return exit_obj
-#             except Exception as e:
-#                 return False
-#
-#             # exit_obj = authorization_module(exit_obj)
-#         case "Профиль":
-#             print('products')
-#             # exit_obj = product_module(exit_obj)
-#         case "Тикет":
-#             exit_obj = exchange_ticket()
-#             if exit_obj == False:
-#                 return False
-#             if bool(exit_obj) == True:
-#                 return False
-#             print('Ticket')
-#             # exit_obj = product_module(exit_obj)
-
-
-# def continue_input_ticket(choice):
 
 def launch_second_view(token):
     if token:
         user_data = parse_username_and_points(token)
 
-        a = render_second_view_menu(user_data['username'], user_data['user_id'])
+        a = executer_and_render_second_menu(user_data['username'], user_data['user_id'])
         while a == False:
-            a = render_second_view_menu(user_data['username'], user_data['user_id'])
+            a = executer_and_render_second_menu(user_data['username'], user_data['user_id'])
+
+        if a == "Logout":
+            return "Logout"
+
         pass
 
 
