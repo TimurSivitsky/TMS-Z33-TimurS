@@ -2,7 +2,9 @@ from ne_magazin.settings import menu_items_map, intro
 from ne_magazin.views.registration import registration
 from ne_magazin.views.login import authorization
 from ne_magazin.views.second_app_view import launch_second_view
-from ne_magazin.views.products import products_list_view
+from ne_magazin.views.products import products_list_view, create_default_product
+from ne_magazin.views.tickets import create_default_tickets
+
 
 import time
 
@@ -72,6 +74,10 @@ def executer():
 
 
 def launch():
+    create_default_product(5)
+    create_default_tickets(5)
+    print('Created randomly default tickets, and products')
+
     while True:
         a = executer()
         while a == False:

@@ -2,10 +2,11 @@ import uuid
 
 from ne_magazin.models import Tickets, Users
 import datetime
+import random
 
 
-def create_ticket():
-    for _ in range(1):
+def create_default_tickets(number):
+    for _ in range(number):
         default_ticket: Tickets = Tickets.create(ticket_uuid=uuid.uuid4(), is_available=True)
     return True
 
