@@ -61,16 +61,17 @@ def create_order(product: Products, count: int, username: str):
         return new_order
 
     except Exception as e:
-        print(f'something went wrong in CREATTION ORDER {e}')
+        print(f'something went wrong in CREATION ORDER {e}')
 
 
-def laucnh_order_view(username):
+def launch_order_view(username):
     while True:
         try:
 
             current_product, count = choose_product()
             return create_order(current_product, count, username=username)
-        except TypeError:
+        except TypeError as e:
+            print(f"launch order view error {e}")
             return False
 
 
@@ -82,4 +83,4 @@ if __name__ == "__main__":
     #
     # current_product, count = choose_product()
     # print(create_order(current_product, count, 'ihar'))
-    laucnh_order_view()
+    launch_order_view('tima')

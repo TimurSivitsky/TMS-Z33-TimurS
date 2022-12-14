@@ -35,7 +35,8 @@ def render_start_menu():
             case '4':
                 print("Apps will closed in 3 sec")
                 time.sleep(3)
-                break
+                exit()
+                return 'exit'
 
             case _:
                 print(f'неправильный выбор: \'{input_choice}\'  Попробуйте еще раз')
@@ -82,6 +83,8 @@ def launch():
         a = executer()
         while a == False:
             a = executer()
+            if a == "exit":
+                return 'exit'
 
         while bool(a) == True:
             if isinstance(a, tuple):

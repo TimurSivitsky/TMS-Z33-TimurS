@@ -3,7 +3,7 @@ from ne_magazin.settings import menu_items_map
 from ne_magazin.settings import intro
 from ne_magazin.views.tickets import exchange_ticket
 from ne_magazin.views.products import products_list_view
-from ne_magazin.views.orders import laucnh_order_view
+from ne_magazin.views.orders import launch_order_view
 from ne_magazin.views.profile import profile_view
 
 
@@ -29,7 +29,7 @@ f"""Для взаимодействия выберете номер команд
                 exit_reslut = products_list_view()
 
             case '2':
-                result_order = laucnh_order_view(username)
+                result_order = launch_order_view(username)
                 if result_order == False:
                     return False
                 elif bool(result_order) == True:
